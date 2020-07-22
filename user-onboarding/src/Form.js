@@ -9,6 +9,21 @@ width:20%;
 margin:5px;
 `
 
+const ContainerContainer = styled.div`
+display: flex;
+justify-content: center;
+align-items:center;
+`
+
+const UserContainer = styled.div`
+width:20%;
+margin:5px;
+padding:10px;
+border-radius:10px;
+border:5px solid crimson;
+color:crimson;
+`
+
 const ButtonStyle = styled.button`
 background-color:crimson;
 color:ivory;
@@ -22,7 +37,7 @@ border-radius:10px;
 `
 
 const TitleStyle = styled.div`
-color:ivory;
+color:white;
 background-color:crimson;
 width:20%;
 margin:auto;
@@ -133,6 +148,12 @@ function Form() {
         validationCheck(event)
     }
 
+    // let userDisplay = JSON.stringify(users)
+    // console.log(users.name, 'this hsould just be name')
+    // let usersName = JSON.stringify(users.name)
+    // console.log(usersName, 'this is the name variable')
+
+
     return(
         <div>
         <StyledForm>
@@ -194,7 +215,13 @@ function Form() {
             <ButtonStyle disabled={disableButton}>Submit</ButtonStyle>
         </form>
         </StyledForm>
-        <p>This is the user display test: {JSON.stringify(users)}</p>
+        <FormTitle>User List</FormTitle>
+        <ContainerContainer>
+        <UserContainer>
+            <p>{users.name}</p>
+            <p>{users.email}</p>
+        </UserContainer>
+        </ContainerContainer>
         </div>
     )
 }
