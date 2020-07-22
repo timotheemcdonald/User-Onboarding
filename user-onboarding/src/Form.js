@@ -95,6 +95,7 @@ function Form() {
     const [newForm, setForm] = useState(defaultForm)
     const [errors, setErrors] = useState(defaultErrors)
     const [disableButton, setButton] = useState(true)
+    const [users, setUsers] = useState([])
 
     useEffect(() => {
         defaultSchema.validate(newForm)
@@ -118,7 +119,11 @@ function Form() {
         event.preventDefault()
         console.log('submit start')
         axios.post('https://reqres.in/api/users', newForm)
-        .then(value => console.log('submit success'))
+        .then(value => {
+            /*test*/
+            const newTeamMember = value.data
+            setUsers([newTeamMember],...users)
+            setUsers(value.data)})
         .catch(error => console.log('error', error))
     }
     
@@ -129,6 +134,7 @@ function Form() {
     }
 
     return(
+        <div>
         <StyledForm>
         <form onSubmit={onSubmit}>
         <TitleStyle><h1>User Onboarding</h1></TitleStyle>
@@ -188,6 +194,8 @@ function Form() {
             <ButtonStyle disabled={disableButton}>Submit</ButtonStyle>
         </form>
         </StyledForm>
+        <p>This is the user display test: {JSON.stringify(users)}</p>
+        </div>
     )
 }
 
