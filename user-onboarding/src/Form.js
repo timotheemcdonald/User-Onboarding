@@ -31,6 +31,7 @@ justify-content:center;
 text-align:center;
 padding:10px;
 border-radius:10px;
+align-items:baseline;
 `
 
 const FormTitle = styled.div`
@@ -42,6 +43,7 @@ display:flex;
 justify-content:flex-start;
 padding:10px;
 border-radius:10px;
+align-items:baseline;
 `
 
 const StyledForm = styled.div`
