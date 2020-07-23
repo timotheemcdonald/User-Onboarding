@@ -102,7 +102,7 @@ function Form() {
         name: yup.string().required('That is not a real name. Please try again.'),
         email: yup.string().email('Please enter a valid e-mail address.').required('A valid e-mail address is required.'),
         password: yup.string().required('This is not a valid password.'),
-        terms: yup.boolean().oneOf([true],'Must agree to continue.')
+        terms: yup.boolean().oneOf([false],'Must agree to continue.')
     })
     
     
